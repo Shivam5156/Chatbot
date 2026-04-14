@@ -62,4 +62,62 @@ It integrates **Groq API (Llama 3 models)** for ultra-fast AI responses and uses
 
 ---
 
-## 📁 Project Structure
+## 🔒 Security
+
+- Password hashing (bcrypt)
+- JWT authentication
+- Protected API routes
+- Environment variable protection
+
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in backend:
+
+```env
+MONGO_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+GROQ_API_KEY=your_groq_api_key
+PORT=5000
+
+## 🧪 Run Locally
+
+### 1. Clone repo
+git clone https://github.com/your-username/repo-name.git
+
+### 2. Install dependencies
+Backend:
+cd backend
+npm install
+
+Frontend:
+cd frontend
+npm install
+
+### 3. Start project
+Backend:
+npm run dev
+
+Frontend:
+npm start
+
+## 📡 API Routes
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | /api/auth/signup | Register user |
+| POST | /api/auth/login | Login user |
+| POST | /api/chat | Send message to AI |
+
+## 📈 Future Improvements
+
+- Chat history storage
+- Voice input/output
+- File upload support
+- Multiple AI model support
+
+## 🙌 Author
+
+Shivam Singh  
+GitHub: [@your-username](https://github.com/your-username)
+LinkedIn: https://linkedin.com/in/your-profile
