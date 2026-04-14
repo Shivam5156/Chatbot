@@ -6,58 +6,60 @@
   <img src="https://img.shields.io/badge/JWT-Auth-red?style=for-the-badge" />
   <img src="https://img.shields.io/badge/AI-Chatbot-brightgreen?style=for-the-badge" />
   <img src="https://img.shields.io/badge/Status-Active-success?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Deployed-Vercel%2FRender-blue?style=for-the-badge" />
 </p>
 
 ---
 
 ## 🚀 Overview
 
-This is a **full-stack AI chatbot application** built using the **MERN stack** with **JWT authentication** and **Groq LLM API integration**.
+This is a **full-stack AI Chatbot application** built using the **MERN stack** with secure authentication and AI-powered responses.
 
-It provides real-time intelligent conversations with a secure backend and scalable architecture.
+It integrates **Groq API (Llama 3 models)** for ultra-fast AI responses and uses **JWT authentication** for secure login/signup system.
 
 ---
 
-## 📸 Preview
+## 🌐 Live Demo
 
-<p align="center">
-  <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" width="600"/>
-</p>
+👉 Frontend: https://your-frontend-link.com  
+👉 Backend API: https://your-backend-link.com  
 
 ---
 
 ## ✨ Features
 
-- 🔐 User Authentication (JWT)
-- 💬 Real-time AI Chat
-- ⚡ Fast React UI
-- 🧠 Groq LLM Integration (Llama3)
-- 📦 MongoDB Database
+- 🔐 User Authentication (Signup / Login with JWT)
+- 💬 Real-time AI Chat Interface
+- ⚡ Ultra-fast responses using Groq LLM
+- 🧠 AI-powered smart replies
 - 🔒 Protected Routes (Middleware)
+- 📦 MongoDB Database Integration
 - 🌐 REST API Architecture
 - 📱 Fully Responsive UI
+- 🗂️ Chat History Support (if implemented)
 
 ---
 
 ## 🛠️ Tech Stack
 
-**Frontend**
+### Frontend
 - React.js
-- CSS / Tailwind
+- Tailwind CSS / CSS
 
-**Backend**
+### Backend
 - Node.js
 - Express.js
 
-**Database**
+### Database
 - MongoDB
 
-**Authentication**
-- JWT (JSON Web Token)
+### Authentication
+- JSON Web Token (JWT)
+- bcrypt.js
 
-**AI Integration**
-- Groq API (Llama3)
+### AI Integration
+- Groq API (Llama 3)
 
+---
 
-
-
+## 📁 Project Structure
