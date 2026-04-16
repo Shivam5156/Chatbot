@@ -22,7 +22,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`${backendUrl}+ /api/chat`, { message }, { withCredentials: true });
+      const res = await axios.post(`${backendUrl}/api/chat`, { message }, { withCredentials: true });
 
       const botMsg = { role: "bot", text: res.data.reply };
       setChat((prev) => [...prev, botMsg]);

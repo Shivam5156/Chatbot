@@ -7,13 +7,13 @@ import axios from 'axios'
 
 const Navbar = () => {
   const navigate = useNavigate()
-  const { userData, setUserData, setIsLoggedin } = useContext(AppContext)
+  const { userData, setUserData, setIsLoggedin , backendUrl} = useContext(AppContext)
 
   const [isOpen, setIsOpen] = useState(false)
 
   const sendVerificationOtp = async () => {
     try {
-      const { data } = await axios.post('/auth/send-verify-otp')
+      const { data } = await axios.post(`${backendUrl}/auth/send-verify-otp`)
 
       if (data.success) {
         navigate('/email-verify')
@@ -28,7 +28,7 @@ const Navbar = () => {
 
   const logout = async () => {
     try {
-      const { data } = await axios.post('/api/auth/logout')
+      const { data } = await axios.post(`${backendUrl}/api/auth/logout`)
 
       if (data.success) {
         setIsLoggedin(false)

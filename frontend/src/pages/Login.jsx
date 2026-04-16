@@ -38,7 +38,7 @@ const Login = () => {
       setLoading(true)
 
       axios.defaults.withCredentials = true
-      const res = await axios.post(`${backendUrl} + /api/auth/login`, data)
+      const res = await axios.post(`${backendUrl}/api/auth/login`, data)
 
       if (res.data.success) {
         setIsLoggedin(true)
