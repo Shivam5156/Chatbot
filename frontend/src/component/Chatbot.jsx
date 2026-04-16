@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 import axios from 'axios';
 
 const Chatbot = () => {
-  const { userData } = useContext(AppContext);
+  const { userData, backendUrl } = useContext(AppContext);
   const [message, setMessage] = useState("");
   const [chat, setChat] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ const Chatbot = () => {
     setLoading(true);
 
     try {
-      const res = await axios.post(`/api/chat`, { message }, { withCredentials: true });
+      const res = await axios.post(`${backendUrl}+ /api/chat`, { message }, { withCredentials: true });
 
       const botMsg = { role: "bot", text: res.data.reply };
       setChat((prev) => [...prev, botMsg]);
@@ -74,16 +74,14 @@ const Chatbot = () => {
           {chat.map((msg, i) => (
             <div
               key={i}
-              className={`flex ${
-                msg.role === "user" ? "justify-end" : "justify-start"
-              }`}
+              className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"
+                }`}
             >
               <div
-                className={`px-4 py-3 rounded-2xl max-w-[75%] text-sm shadow-md ${
-                  msg.role === "user"
-                    ? "bg-linear-to-r from-blue-500 to-indigo-500 text-white rounded-br-none"
-                    : "bg-white text-gray-800 rounded-bl-none border"
-                }`}
+                className={`px-4 py-3 rounded-2xl max-w-[75%] text-sm shadow-md ${msg.role === "user"
+                  ? "bg-linear-to-r from-blue-500 to-indigo-500 text-white rounded-br-none"
+                  : "bg-white text-gray-800 rounded-bl-none border"
+                  }`}
               >
                 {renderMessage(msg)}
               </div>

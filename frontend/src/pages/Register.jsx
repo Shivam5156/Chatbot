@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Mail, Lock, User, Phone } from 'lucide-react'
 import { toast } from 'react-toastify'
 import axios from 'axios'
+import { AppContext } from '../context/AppContext'
 
 const Register = () => {
 
@@ -17,6 +18,8 @@ const Register = () => {
 
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+
+    const { backendUrl } = useContext(AppContext)
 
     const handleChange = (e) => {
         setData({
@@ -57,10 +60,10 @@ const Register = () => {
         }
 
         try {
-            const res = await axios.post('/api/auth/register', data)
+            const res = await axios.post(`${backendUrl} + /api/auth/register`, data)
 
             if (res.data.success) {
-                toast.success("Register successful 🔥")
+                toast.success("Register successful")
                 navigate('/login')
             } else {
                 toast.error(res.data.message)

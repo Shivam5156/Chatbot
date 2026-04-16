@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import { Mail, User, Lock } from 'lucide-react'
 import axios from 'axios'
 import { toast } from 'react-toastify'
+import { AppContext } from '../context/AppContext'
 
 const ResetPassword = () => {
 
@@ -16,6 +17,8 @@ const ResetPassword = () => {
     const [isOtpSubmitted, setIsOtpSubmitted] = useState(false)
 
     const inputRefs = React.useRef([])
+
+    const { backendUrl } = useContext(AppContext)
 
     const handleInput = (e, index) => {
         if (e.target.value.length > 0 && index < inputRefs.current.length - 1) {
@@ -43,7 +46,7 @@ const ResetPassword = () => {
     const onSubmitEmail = async (e) => {
         e.preventDefault()
         try {
-            const { data } = await axios.post('/api/auth/send-reset-otp', { email })
+            const { data } = await axios.post(`${backendUrl}+ /api/auth/send-reset-otp`, { email })
 
             if (data.success) {
                 toast.success(data.message)
