@@ -7,7 +7,7 @@ export const AppContext = createContext();
 
 export const AppContextProvider = (props) => {
 
-    axios.defaults.withCredentials = true
+    axios.defaults.withCredentials=true
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
@@ -15,21 +15,17 @@ export const AppContextProvider = (props) => {
     const [userData, setUserData] = useState(null);
 
 
-    const getAuthState = async () => {
+    const getAuthState = async ()=>{
         try {
-            const { data } = await axios.get(`${backendUrl}/api/auth/is-auth`)
-
+            const {data} = await axios.get(`${backendUrl}/api/auth/is-auth`)
 
             if (data.success) {
                 setIsLoggedin(true)
-                await getUserdata()
-            } else {
-                setIsLoggedin(false);
+                getUserdata()
             }
-
-
+            
         } catch (error) {
-            toast.error(error.response?.data?.message || error.message);
+              toast.error(error.message)
         }
     }
 
@@ -37,7 +33,6 @@ export const AppContextProvider = (props) => {
     const getUserdata = async () => {
         try {
             const { data } = await axios.get(`${backendUrl}/api/user/data`)
-
 
             if (data.success) {
                 setUserData(data.userData)
@@ -50,9 +45,9 @@ export const AppContextProvider = (props) => {
         }
     }
 
-    useEffect(() => {
+    useEffect(()=>{
         getAuthState()
-    }, [isLoggedin])
+    },[isLoggedin])
 
     const value = {
         backendUrl,
@@ -62,9 +57,6 @@ export const AppContextProvider = (props) => {
         setUserData,
         getUserdata
     };
-
-    console.log("AUTH STATE:", isLoggedin);
-    console.log("USER DATA:", userData);
 
     return (
 
