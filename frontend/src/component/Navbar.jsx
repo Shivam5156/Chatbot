@@ -11,9 +11,11 @@ const Navbar = () => {
 
   const [isOpen, setIsOpen] = useState(false)
 
-  const sendVerificationOtp = async () => {
+ const sendVerificationOtp = async () => {
     try {
-      const { data } = await axios.post(`${backendUrl}/auth/send-verify-otp`)
+      axios.defaults.withCredentials = true
+
+      const { data } = await axios.post(`${backendUrl}/api/auth/send-verify-otp`)
 
       if (data.success) {
         navigate('/email-verify')
@@ -22,27 +24,25 @@ const Navbar = () => {
         toast.error(data.message)
       }
     } catch (error) {
-      toast.error(error?.response?.data?.message || error.message)
+      toast.error(error.message)
     }
   }
 
   const logout = async () => {
-  try {
-    const { data } = await axios.post(
-      `${backendUrl}/api/auth/logout`,
-      {},
-      { withCredentials: true }
-    );
+    try {
+      axios.defaults.withCredentials = true;
+      const { data } = await axios.post(`${backendUrl}/api/auth/logout`)
 
-    if (data.success) {
-      setIsLoggedin(false);
-      setUserData(null);
-      navigate('/');
+      if (data.success) {
+        setIsLoggedin(false);
+        setUserData(null);
+        navigate('/');
+      }
+
+    } catch (error) {
+      toast.error(error.message)
     }
-  } catch (error) {
-    toast.error(error?.response?.data?.message || error.message);
   }
-};
 
   return (
     <>
