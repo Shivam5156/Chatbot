@@ -21,8 +21,7 @@ It integrates **Groq API (Llama 3 models)** for ultra-fast AI responses and uses
 
 ## 🌐 Live Demo
 
-👉 Frontend: https://your-frontend-link.com  
-👉 Backend API: https://your-backend-link.com  
+👉 Frontend:https://chatbot-git-main-shivam5156s-projects.vercel.app 
 
 ---
 
