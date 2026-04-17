@@ -43,7 +43,7 @@ const Login = () => {
       if (res.data.success) {
         setIsLoggedin(true)
         toast.success("Login successful!")
-        // await getUserdata()
+        await getUserdata()
         navigate('/')
       } else {
         toast.error(res.data.message)
