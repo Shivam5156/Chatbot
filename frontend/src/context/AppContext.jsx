@@ -21,7 +21,7 @@ export const AppContextProvider = (props) => {
 
             if (data.success) {
                 setIsLoggedin(true)
-                getUserdata()
+              await   getUserdata()
             } else {
                 setIsLoggedin(false);
             }

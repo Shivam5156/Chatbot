@@ -27,18 +27,22 @@ const Navbar = () => {
   }
 
   const logout = async () => {
-    try {
-      const { data } = await axios.post(`${backendUrl}/api/auth/logout`)
+  try {
+    const { data } = await axios.post(
+      `${backendUrl}/api/auth/logout`,
+      {},
+      { withCredentials: true }
+    );
 
-      if (data.success) {
-        setIsLoggedin(false)
-        setUserData(null)
-        navigate('/')
-      }
-    } catch (error) {
-      toast.error(error?.response?.data?.message || error.message)
+    if (data.success) {
+      setIsLoggedin(false);
+      setUserData(null);
+      navigate('/');
     }
+  } catch (error) {
+    toast.error(error?.response?.data?.message || error.message);
   }
+};
 
   return (
     <>
