@@ -16,14 +16,9 @@ const PORT = process.env.PORT
 connectDb()
 
 //middleware
-const allowedOrigins = [
-    'http://localhost:5173',
-    'https://chatbot-git-main-shivam5156s-projects.vercel.app'
-];
-
 app.use(cors({
     origin: function(origin, callback){
-        if(!origin || allowedOrigins.includes(origin)){
+        if(!origin || origin.includes('vercel.app') || origin === 'http://localhost:5173'){
             callback(null, true);
         } else {
             callback(new Error("Not allowed by CORS"));
